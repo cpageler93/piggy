@@ -47,7 +47,7 @@ module PiggyCash
       def prepare_database
         migrations_path = File.join(File.dirname(__FILE__), '../db/migrate')
         ActiveRecord::Migration.verbose = true
-        migrate = ActiveRecord::Migrator.migrate migrations_path, nil
+        ActiveRecord::Migrator.migrate migrations_path, nil
       end
 
       def check_first_account
