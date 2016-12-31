@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.push File.expand_path('../../lib', __FILE__)
+
+require 'piggy_cash'
+require 'commander'
+require 'terminal-table'
+
+class PiggyCashApplication
+  include Commander::Methods
+
+  def run
+    program :version, PiggyCash::VERSION
+    program :description, "Piggy Cash helps you to organize income and outcome"
+    program :help, 'Author', 'Christoph Pageler <christoph.pageler@me.com>'
+    program :help, 'Website', 'http://www.christophpageler.de'
+    program :help_formatter, :compact
+
+    global_option('--verbose')  { $verbose = true }
+    global_option('--debug')    { $debug = true }
+    global_option('--force')    { $force = true }
+
+    always_trace!
+
+    command 'import' do |c|
+
+      c.option '--file STRING', String, 'path to file'
+
+      c.action do |args, options|
+
+        options = {
+          file: options.file
+        }
+
+        cmd = PiggyCash::CLI::Import.new
+        cmd.execute(options)
+
+      end
+    end
+
+    command 'setup' do |c|
+
+      c.action do |args, options|
+
+        options = {
+        }
+
+        # has = PiggyCash::Core::Keychain::has_valid_connection_in_keychain_item?
+        # puts "has #{has}"
+        # return
+
+        cmd = PiggyCash::CLI::Setup.new
+        cmd.execute(options)
+
+      end
+
+    end
+
+    default_command :help
+
+    run!
+  end
+end
+
+begin
+  PiggyCashApplication.new.run
+ensure
+end

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+gem build piggy_cash.gemspec            # build the gem
+gem_name=`ls piggy_cash*.gem`           # get gem name
+sudo gem install $gem_name            	# install the gem
+rm $gem_name                          	# remove gem file
+
+# test cli
+# piggycash import --file foo.csv
+# piggycash setup --force
+piggycash setup
