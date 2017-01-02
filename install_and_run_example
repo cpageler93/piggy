@@ -6,6 +6,6 @@ sudo gem install $gem_name            	# install the gem
 rm $gem_name                          	# remove gem file
 
 # test cli
-# piggycash import --file foo.csv
+piggycash import --file ~/Desktop/DIBA_1.csv --encoding ISO-8859-1 --seperator ';' --type ingdiba
 # piggycash setup --force
-piggycash setup
+# piggycash setup
