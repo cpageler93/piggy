@@ -12,7 +12,6 @@ module PiggyCash
       end
 
       def validate_saldo
-
         # setup variables
         total_saldo = 0
 
@@ -33,6 +32,16 @@ module PiggyCash
         end
 
         return true
+      end
+
+      def map
+        {
+          id: self.id,
+          name: self.name,
+          iban: self.iban,
+          created_at: self.created_at,
+          updated_at: self.updated_at
+        }
       end
 
     end

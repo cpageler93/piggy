@@ -59,9 +59,16 @@ class PiggyCashApplication
     end
 
     command 'serve api' do |c|
+      c.option '--port INT', Integer, 'API Port'
+
       c.action do |arg, options|
+
+        options = {
+          port: options.port,
+        }
+
         cmd = PiggyCash::CLI::Serve::API.new
-        cmd.execute()
+        cmd.execute(options)
       end
     end
 
