@@ -18,7 +18,7 @@ module PiggyCash
 
         # check file exists
         unless File.file?(file)
-          puts "Error: file does not exist at ´#{file_path}´"
+          puts "Error: file does not exist at ´#{file_path}´".red
           exit 1
         end
 
@@ -36,7 +36,7 @@ module PiggyCash
         when "INGDIBA"
           PiggyCash::Core::Importer::INGDiBa.import(rows)
         else
-          puts "Error: type not supported ´#{type}´"
+          puts "Error: type not supported ´#{type}´".red
         end
 
       end

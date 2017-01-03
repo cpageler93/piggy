@@ -15,6 +15,7 @@ require 'piggy_cash/core/importer/ingdiba.rb'
 require 'piggy_cash/cli/base.rb'
 require 'piggy_cash/cli/import.rb'
 require 'piggy_cash/cli/setup.rb'
+require 'piggy_cash/cli/validate/saldo.rb'
 
 # Models
 require 'piggy_cash/models/account.rb'

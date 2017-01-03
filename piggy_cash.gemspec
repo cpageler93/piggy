@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'commander', '= 4.3.5'        # CLI parser
-  s.add_dependency 'colored', '= 1.2'            # coloured terminal output
+  s.add_dependency 'colored', '= 1.2'            # colored terminal output
   s.add_dependency 'terminal-table', '= 1.4.5'   # actions documentation
   s.add_dependency 'ruby-progressbar', '= 1.7.5' # CLI progress bar
   s.add_dependency 'activerecord', '= 4.2.6'     # ActiveRecord

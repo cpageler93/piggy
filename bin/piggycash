@@ -4,6 +4,7 @@ $LOAD_PATH.push File.expand_path('../../lib', __FILE__)
 require 'piggy_cash'
 require 'commander'
 require 'terminal-table'
+require 'colored'
 
 class PiggyCashApplication
   include Commander::Methods
@@ -22,14 +23,12 @@ class PiggyCashApplication
     always_trace!
 
     command 'import' do |c|
-
       c.option '--file STRING', String, 'path to file'
       c.option '--encoding STRING', String, 'encoding of file'
       c.option '--seperator STRING', String, 'seperator of csv file'
       c.option '--type STRING', String, 'type of input file'
 
       c.action do |args, options|
-
         options = {
           file: options.file,
           encoding: options.encoding,
@@ -39,22 +38,24 @@ class PiggyCashApplication
 
         cmd = PiggyCash::CLI::Import.new
         cmd.execute(options)
-
       end
     end
 
     command 'setup' do |c|
-
       c.action do |args, options|
-
         options = {
         }
 
         cmd = PiggyCash::CLI::Setup.new
         cmd.execute(options)
-
       end
+    end
 
+    command 'validate saldo' do |c|
+      c.action do |arg, options|
+        cmd = PiggyCash::CLI::Validate::Saldo.new
+        cmd.execute(options)
+      end
     end
 
     default_command :help

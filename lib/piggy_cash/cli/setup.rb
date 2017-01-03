@@ -25,7 +25,7 @@ module PiggyCash
           if $force
             keychain_item.delete
           else
-            puts "Error: There is a corresponding Keychain Item for PiggyCash\nUse --force to override"
+            puts "Error: There is a corresponding Keychain Item for PiggyCash\nUse --force to override".red
             return
           end
         end

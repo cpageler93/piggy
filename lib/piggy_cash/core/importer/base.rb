@@ -19,7 +19,7 @@ module PiggyCash
               account.iban = iban
               account.save!
             else
-              puts "Error: No Account"
+              puts "Error: No Account".red
               exit 1
             end
           end
