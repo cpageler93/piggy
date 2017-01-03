@@ -18,12 +18,13 @@ Gem::Specification.new do |s|
   s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency 'commander', '= 4.3.5'        # CLI parser
-  s.add_dependency 'colored', '= 1.2'            # colored terminal output
-  s.add_dependency 'terminal-table', '= 1.4.5'   # actions documentation
-  s.add_dependency 'ruby-progressbar', '= 1.7.5' # CLI progress bar
-  s.add_dependency 'activerecord', '= 4.2.6'     # ActiveRecord
-  s.add_dependency 'ruby-keychain', '= 0.3.2'    # Keychain Access
+  s.add_dependency 'commander', '= 4.3.5'         # CLI parser
+  s.add_dependency 'colored', '= 1.2'             # colored terminal output
+  s.add_dependency 'terminal-table', '= 1.4.5'    # actions documentation
+  s.add_dependency 'ruby-progressbar', '= 1.7.5'  # CLI progress bar
+  s.add_dependency 'activerecord', '= 4.2.6'      # ActiveRecord
+  s.add_dependency 'ruby-keychain', '= 0.3.2'     # Keychain Access
+  s.add_dependency 'sinatra', '= 1.4.7'           # HTTP
 
   # Development only
   s.add_development_dependency 'bundler', '= 1.11.2'

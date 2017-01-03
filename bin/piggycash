@@ -58,6 +58,13 @@ class PiggyCashApplication
       end
     end
 
+    command 'serve api' do |c|
+      c.action do |arg, options|
+        cmd = PiggyCash::CLI::Serve::API.new
+        cmd.execute()
+      end
+    end
+
     default_command :help
 
     run!
