@@ -6,6 +6,15 @@ module PiggyCash
 
       before do
         content_type 'application/json'
+
+        if request.body.size > 0
+          request.body.rewind
+          @params = JSON.parse request.body.read
+        end
+      end
+
+      not_found do
+        {error: 'route not found'}.to_json
       end
 
       ###############
@@ -18,7 +27,22 @@ module PiggyCash
 
       get '/accounts/:id' do
         c = PiggyCash::API::Controllers::AccountsController.new
-        c.show(params[:id].to_i)
+        c.show(params['id'].to_i)
+      end
+
+      post '/accounts' do
+        c = PiggyCash::API::Controllers::AccountsController.new
+        c.create(@params)
+      end
+
+      patch '/accounts/:id' do
+        c = PiggyCash::API::Controllers::AccountsController.new
+        c.update(params['id'].to_i, @params)
+      end
+
+      delete '/accounts/:id' do
+        c = PiggyCash::API::Controllers::AccountsController.new
+        c.delete(params['id'].to_i)
       end
 
     end
