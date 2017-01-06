@@ -26,3 +26,7 @@ require 'piggy_cash/api/app.rb'
 # Models
 require 'piggy_cash/models/account.rb'
 require 'piggy_cash/models/booking_entry.rb'
+require 'piggy_cash/models/booking_entry_query.rb'
+require 'piggy_cash/models/evaluated_booking_entry.rb'
+require 'piggy_cash/models/tag.rb'
+require 'piggy_cash/models/booking_entry_tag_recognizer.rb'
