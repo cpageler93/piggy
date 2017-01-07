@@ -79,6 +79,13 @@ class PiggyCashApplication
       end
     end
 
+    command 'reveal untagged' do |c|
+      c.action do |arg, options|
+        cmd = PiggyCash::CLI::Reveal::Untagged.new
+        cmd.execute(options)
+      end
+    end
+
     default_command :help
 
     run!
