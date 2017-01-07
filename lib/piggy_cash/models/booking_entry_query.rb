@@ -3,6 +3,7 @@ module PiggyCash
     class BookingEntryQuery < ::ActiveRecord::Base
       belongs_to :account
       has_many :booking_entry_tag_recognizers
+      has_many :tags, through: :booking_entry_tag_recognizers
 
       def booking_entries
         prefix = "select * from booking_entries be where "

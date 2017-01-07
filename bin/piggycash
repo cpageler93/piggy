@@ -72,6 +72,13 @@ class PiggyCashApplication
       end
     end
 
+    command 'recognize tags' do |c|
+      c.action do |arg, options|
+        cmd = PiggyCash::CLI::Recognize::Tags.new
+        cmd.execute(options)
+      end
+    end
+
     default_command :help
 
     run!

@@ -2,6 +2,7 @@ module PiggyCash
   module Models
     class Account < ::ActiveRecord::Base
       has_many :booking_entries, -> { order 'booking_date, id' }
+      has_many :booking_entry_queries
 
       def newest_booking_entry
         self.booking_entries.last

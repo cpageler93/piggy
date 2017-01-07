@@ -8,6 +8,7 @@ rm $gem_name                          	# remove gem file
 # test cli
 # piggycash import --file ~/Desktop/DIBA_1.csv --encoding ISO-8859-1 --seperator ';' --type ingdiba
 # piggycash setup --force
-piggycash setup
+# piggycash setup
 # piggycash validate saldo
 # piggycash serve api --port 12345
+piggycash recognize tags
