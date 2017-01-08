@@ -86,13 +86,22 @@ class PiggyCashApplication
       end
     end
 
+    command 'assign tags' do |c|
+      c.action do |arg, options|
+        cmd = PiggyCash::CLI::Assign::Tags.new
+        cmd.execute(options)
+      end
+    end
+
     default_command :help
 
     run!
   end
 end
 
+
 begin
   PiggyCashApplication.new.run
+rescue SystemExit, Interrupt
 ensure
 end

@@ -35,6 +35,13 @@ module PiggyCash
         return entry
       end
 
+      def has_evaluated_booking_entries_with_tags?
+        self.evaluated_booking_entries.each do |evaluated_booking_entry|
+          return true if evaluated_booking_entry.tags.count > 0
+        end
+        return false
+      end
+
     end
   end
 end

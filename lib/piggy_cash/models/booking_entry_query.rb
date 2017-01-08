@@ -5,13 +5,13 @@ module PiggyCash
       has_many :booking_entry_tag_recognizers
       has_many :tags, through: :booking_entry_tag_recognizers
 
-      def booking_entries
+      def self.booking_entries_for_query(query, account)
         prefix = "select * from booking_entries be where "
-        account_query = "be.account_id = #{self.account.id}"
+        account_query = "be.account_id = #{account.id}"
 
         all_queries = []
         all_queries << account_query
-        all_queries << self.query if self.query.length > 0
+        all_queries << query if query.length > 0
 
         all_queries_string = all_queries.join(" and ")
 
@@ -23,6 +23,10 @@ module PiggyCash
           puts "Error: #{e.message}".red
           return nil
         end
+      end
+
+      def booking_entries
+        BookingEntryQuery.booking_entries_for_query(self.query, self.account)
       end
     end
   end

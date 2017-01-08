@@ -12,4 +12,5 @@ rm $gem_name                          	# remove gem file
 # piggycash validate saldo
 # piggycash serve api --port 12345
 # piggycash recognize tags
-piggycash reveal untagged
+# piggycash reveal untagged
+piggycash assign tags
