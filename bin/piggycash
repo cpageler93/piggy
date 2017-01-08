@@ -87,7 +87,15 @@ class PiggyCashApplication
     end
 
     command 'assign tags' do |c|
+
+      c.option '--select', 'Select existing Query'
+      c.option '--create', 'Create new Query'
+
       c.action do |arg, options|
+        options = {
+          select: options.select,
+          create: options.create
+        }
         cmd = PiggyCash::CLI::Assign::Tags.new
         cmd.execute(options)
       end

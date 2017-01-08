@@ -38,10 +38,9 @@ module PiggyCash
                                         'Booking Date',
                                         'Valuta',
                                         'Participant',
-                                        # 'Booking Type',
-                                        # 'Usage',
-                                        # 'Value'
-                                        'Row Options'
+                                        'Booking Type',
+                                        'Usage',
+                                        'Value'
                                       ],
                                       :rows => rows
           puts table

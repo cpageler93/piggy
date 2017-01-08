@@ -8,8 +8,12 @@ require 'piggy_cash/core/keychain.rb'
 require 'piggy_cash/core/database_connection.rb'
 require 'piggy_cash/core/recognizer/tags.rb'
 require 'piggy_cash/core/revealer/untagged.rb'
+
+# Core/Selection
 require 'piggy_cash/core/selection/account.rb'
 require 'piggy_cash/core/selection/booking_entry.rb'
+require 'piggy_cash/core/selection/booking_entry_query.rb'
+require 'piggy_cash/core/selection/tag.rb'
 
 # Core/Importer
 require 'piggy_cash/core/importer/base.rb'
