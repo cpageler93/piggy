@@ -8,13 +8,19 @@ require 'colored'
 
 class PiggyCashApplication
   include Commander::Methods
+  include PiggyCash::CLI::Commands::API
+  include PiggyCash::CLI::Commands::Import
+  include PiggyCash::CLI::Commands::Query
+  include PiggyCash::CLI::Commands::Setup
+  include PiggyCash::CLI::Commands::Tags
+  include PiggyCash::CLI::Commands::Validate
 
   def run
     program :version, PiggyCash::VERSION
     program :description, "Piggy Cash helps you to organize income and outcome"
     program :help, 'Author', 'Christoph Pageler <christoph.pageler@me.com>'
     program :help, 'Website', 'http://www.christophpageler.de'
-    program :help_formatter, :compact
+    # program :help_formatter, :compact
 
     global_option('--verbose')  { $verbose = true }
     global_option('--debug')    { $debug = true }
@@ -22,84 +28,12 @@ class PiggyCashApplication
 
     always_trace!
 
-    command 'import' do |c|
-      c.option '--file STRING', String, 'path to file'
-      c.option '--encoding STRING', String, 'encoding of file'
-      c.option '--seperator STRING', String, 'seperator of csv file'
-      c.option '--type STRING', String, 'type of input file'
-
-      c.action do |args, options|
-        options = {
-          file: options.file,
-          encoding: options.encoding,
-          seperator: options.seperator,
-          type: options.type,
-        }
-
-        cmd = PiggyCash::CLI::Import.new
-        cmd.execute(options)
-      end
-    end
-
-    command 'setup' do |c|
-      c.action do |args, options|
-        options = {
-        }
-
-        cmd = PiggyCash::CLI::Setup.new
-        cmd.execute(options)
-      end
-    end
-
-    command 'validate saldo' do |c|
-      c.action do |arg, options|
-        cmd = PiggyCash::CLI::Validate::Saldo.new
-        cmd.execute(options)
-      end
-    end
-
-    command 'serve api' do |c|
-      c.option '--port INT', Integer, 'API Port'
-
-      c.action do |arg, options|
-
-        options = {
-          port: options.port,
-        }
-
-        cmd = PiggyCash::CLI::Serve::API.new
-        cmd.execute(options)
-      end
-    end
-
-    command 'recognize tags' do |c|
-      c.action do |arg, options|
-        cmd = PiggyCash::CLI::Recognize::Tags.new
-        cmd.execute(options)
-      end
-    end
-
-    command 'reveal untagged' do |c|
-      c.action do |arg, options|
-        cmd = PiggyCash::CLI::Reveal::Untagged.new
-        cmd.execute(options)
-      end
-    end
-
-    command 'assign tags' do |c|
-
-      c.option '--select', 'Select existing Query'
-      c.option '--create', 'Create new Query'
-
-      c.action do |arg, options|
-        options = {
-          select: options.select,
-          create: options.create
-        }
-        cmd = PiggyCash::CLI::Assign::Tags.new
-        cmd.execute(options)
-      end
-    end
+    setup_commands
+    validate_commands
+    api_commands
+    import_commands
+    tag_commands
+    query_commands
 
     default_command :help
 

@@ -1,7 +1,7 @@
 module PiggyCash
   module CLI
-    module Serve
-      class API < Base
+    module API
+      class Serve < Base
         def execute(options = {})
           ensure_valid_connection_in_keychain_item!
 

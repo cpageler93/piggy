@@ -1,7 +1,7 @@
 module PiggyCash
   module CLI
-    module Recognize
-      class Tags < Base
+    module Tags
+      class Recognize < Base
         def execute(options = {})
           ensure_valid_connection_in_keychain_item!
 

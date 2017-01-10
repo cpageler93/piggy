@@ -19,15 +19,24 @@ require 'piggy_cash/core/selection/tag.rb'
 require 'piggy_cash/core/importer/base.rb'
 require 'piggy_cash/core/importer/ingdiba.rb'
 
+# CLI Commands
+require 'piggy_cash/cli/commands/api.rb'
+require 'piggy_cash/cli/commands/import.rb'
+require 'piggy_cash/cli/commands/query.rb'
+require 'piggy_cash/cli/commands/setup.rb'
+require 'piggy_cash/cli/commands/tags.rb'
+require 'piggy_cash/cli/commands/validate.rb'
+
 # CLI
 require 'piggy_cash/cli/base.rb'
 require 'piggy_cash/cli/import.rb'
 require 'piggy_cash/cli/setup.rb'
 require 'piggy_cash/cli/validate/saldo.rb'
-require 'piggy_cash/cli/serve/api.rb'
-require 'piggy_cash/cli/recognize/tags.rb'
-require 'piggy_cash/cli/reveal/untagged.rb'
-require 'piggy_cash/cli/assign/tags.rb'
+require 'piggy_cash/cli/api/serve.rb'
+require 'piggy_cash/cli/tags/recognize.rb'
+require 'piggy_cash/cli/tags/reveal/untagged.rb'
+require 'piggy_cash/cli/query/assign/tags.rb'
+
 
 # API
 require 'piggy_cash/api/controllers/application_controller.rb'

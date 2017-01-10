@@ -5,12 +5,26 @@ gem_name=`ls piggy_cash*.gem`           # get gem name
 sudo gem install $gem_name            	# install the gem
 rm $gem_name                          	# remove gem file
 
-# test cli
-# piggycash import --file ~/Desktop/DIBA_1.csv --encoding ISO-8859-1 --seperator ';' --type ingdiba
+piggycash help
+
+# Tags
+# piggycash tags recognize			# recognize tags on booking entries, silent
+# piggycash tags reveal untagged	# reveal unrecognized bookingentries, silent
+
+# Queries
+# piggycash query assign tags		# create, select query and assign tags to it
+# piggycash query merge				# merge multiple queries
+# piggycash query split				# split single query to multiple
+
+# Setup
 # piggycash setup --force
 # piggycash setup
+
+# Import
+# piggycash import --file ~/Desktop/DIBA_1.csv --encoding ISO-8859-1 --seperator ';' --type ingdiba
+
+# Validate
 # piggycash validate saldo
+
+# Serve
 # piggycash serve api --port 12345
-# piggycash recognize tags
-# piggycash reveal untagged
-piggycash assign tags
