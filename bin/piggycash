@@ -17,7 +17,7 @@ class PiggyCashApplication
 
   def run
     program :version, PiggyCash::VERSION
-    program :description, "Piggy Cash helps you to organize income and outcome"
+    program :description, "Piggy Cash helps you to organize income and expenses"
     program :help, 'Author', 'Christoph Pageler <christoph.pageler@me.com>'
     program :help, 'Website', 'http://www.christophpageler.de'
     # program :help_formatter, :compact

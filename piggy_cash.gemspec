@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version     = PiggyCash::VERSION
   s.authors     = ["Christoph Pageler"]
   s.email       = 'christoph.pageler@me.com'
-  s.summary     = "Piggy Cash helps you to organize income and outcome"
+  s.summary     = "Piggy Cash helps you to organize income and expenses"
   s.description = "More Foo Bar"
   s.homepage    = 'http://christophpageler.de'
   s.license     = 'MIT'
