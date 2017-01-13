@@ -19,6 +19,21 @@ module PiggyCash
               cmd.execute(options)
             end
           end
+
+          command 'query split' do |c|
+            c.syntax = 'piggycash query split'
+            c.description = 'Query: split single query multiple queries'
+
+            c.action do |arg, options|
+
+              options = {
+                query_name: (arg.length >= 1 ? arg[0] : nil)
+              }
+
+              cmd = PiggyCash::CLI::Query::Split.new
+              cmd.execute(options)
+            end
+          end
         end
       end
     end

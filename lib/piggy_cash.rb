@@ -8,6 +8,7 @@ require 'piggy_cash/core/keychain.rb'
 require 'piggy_cash/core/database_connection.rb'
 require 'piggy_cash/core/recognizer/tags.rb'
 require 'piggy_cash/core/revealer/untagged.rb'
+require 'piggy_cash/core/assigner/tag.rb'
 
 # Core/Selection
 require 'piggy_cash/core/selection/account.rb'
@@ -36,6 +37,7 @@ require 'piggy_cash/cli/api/serve.rb'
 require 'piggy_cash/cli/tags/recognize.rb'
 require 'piggy_cash/cli/tags/reveal/untagged.rb'
 require 'piggy_cash/cli/query/assign/tags.rb'
+require 'piggy_cash/cli/query/split.rb'
 
 
 # API

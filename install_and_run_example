@@ -5,7 +5,7 @@ gem_name=`ls piggy_cash*.gem`           # get gem name
 sudo gem install $gem_name            	# install the gem
 rm $gem_name                          	# remove gem file
 
-piggycash help
+# piggycash help
 
 # Tags
 # piggycash tags recognize			# recognize tags on booking entries, silent
@@ -14,7 +14,7 @@ piggycash help
 # Queries
 # piggycash query assign tags		# create, select query and assign tags to it
 # piggycash query merge				# merge multiple queries
-# piggycash query split				# split single query to multiple
+piggycash query split VISA			# split single query to multiple
 
 # Setup
 # piggycash setup --force
