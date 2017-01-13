@@ -46,7 +46,7 @@ Query for booking entries.
 
 **Query:**
 
-Query is just a MySQL where condition for the table ``booking_entries as be``
+Query is just a MySQL where condition for the table ``booking_entries as be``  
 So you can type ``be.participant like "%DIGITALOCEAN%"``
 
 ## BookingEntryTagRecognizer
@@ -68,11 +68,12 @@ An evaluated booking entry can be assigned to tags and can be splitted.
 
 **Split:**
 
-You paid 70€ in a supermarket for food and detergents.
+You paid 70€ in a supermarket for food and detergents.  
 You can split your evaluated booking entry into two pieces referencing to the same original booking entry.
 
 Lets say you paid 17,50€ for the detergents and 52,50€ for food:
-**BookingEntry 1** -> name: "detergents at mycoolsupermarket", tags: mycoolsupermarket, detergents, total_value: 70,00€, split: 0.25
+
+**BookingEntry 1** -> name: "detergents at mycoolsupermarket", tags: mycoolsupermarket, detergents, total_value: 70,00€, split: 0.25  
 **BookingEntry 2** -> name: "food at mycoolsupermarket", tags: mycoolsupermarket, food, total_value: 70,00€, split: 0,75
 
 ## Tag
