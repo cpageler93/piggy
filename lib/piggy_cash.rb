@@ -27,6 +27,7 @@ require 'piggy_cash/cli/commands/query.rb'
 require 'piggy_cash/cli/commands/setup.rb'
 require 'piggy_cash/cli/commands/tags.rb'
 require 'piggy_cash/cli/commands/validate.rb'
+require 'piggy_cash/cli/commands/stats.rb'
 
 # CLI
 require 'piggy_cash/cli/base.rb'
@@ -38,6 +39,7 @@ require 'piggy_cash/cli/tags/recognize.rb'
 require 'piggy_cash/cli/tags/reveal/untagged.rb'
 require 'piggy_cash/cli/query/assign/tags.rb'
 require 'piggy_cash/cli/query/split.rb'
+require 'piggy_cash/cli/stats/saldo.rb'
 
 
 # API

@@ -14,6 +14,7 @@ class PiggyCashApplication
   include PiggyCash::CLI::Commands::Setup
   include PiggyCash::CLI::Commands::Tags
   include PiggyCash::CLI::Commands::Validate
+  include PiggyCash::CLI::Commands::Stats
 
   def run
     program :version, PiggyCash::VERSION
@@ -34,6 +35,7 @@ class PiggyCashApplication
     import_commands
     tag_commands
     query_commands
+    stats_commands
 
     default_command :help
 
