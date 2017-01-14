@@ -34,12 +34,29 @@ module PiggyCash
           puts "Split Query: #{query.name}"
           puts "Query: #{query.query}"
 
-          PiggyCash::Core::Selection::BookingEntry.print_booking_entries_in_table(query.booking_entries)
+          booking_entries_from_query = query.booking_entries
+
+          PiggyCash::Core::Selection::BookingEntry.print_booking_entries_in_table(booking_entries_from_query)
 
           query_string = PiggyCash::Core::Assigner::Tag.ask_for_query do |query_string|
+            # get booking entries with query
             booking_entries = PiggyCash::Models::BookingEntryQuery.booking_entries_for_query(query_string, account)
-            PiggyCash::Core::Assigner::Tag.print_booking_entries_with_highlight(query.booking_entries, booking_entries)
+
+            # print original table, highlight from query
+            PiggyCash::Core::Assigner::Tag.print_booking_entries_with_highlight(booking_entries_from_query, booking_entries)
+
+            # check if booking entries from query are outside table
+            booking_entries_not_in_original_query = booking_entries.select{|booking_entry| !booking_entries_from_query.include?(booking_entry) }
+
+            if booking_entries_not_in_original_query.length > 0
+              puts "Warning: The query you entered will select booking entries which are not in the original query".yellow
+              PiggyCash::Core::Selection::BookingEntry.print_booking_entries_in_table(booking_entries_not_in_original_query, "Not in original")
+            end
           end
+
+          query = PiggyCash::Core::Assigner::Tag.save_query(query_string, account)
+
+          PiggyCash::Core::Assigner::Tag.assign_tags_for_query(query)
 
         end
       end
