@@ -40,6 +40,7 @@ require 'piggy_cash/cli/tags/reveal/untagged.rb'
 require 'piggy_cash/cli/query/assign/tags.rb'
 require 'piggy_cash/cli/query/split.rb'
 require 'piggy_cash/cli/stats/saldo.rb'
+require 'piggy_cash/cli/stats/monthly.rb'
 
 
 # API

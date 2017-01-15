@@ -18,7 +18,8 @@ rm $gem_name                          	# remove gem file
 
 # Stats
 # piggycash stats 					# TODO most important values
-piggycash stats saldo				# saldo per month
+# piggycash stats saldo				# saldo per month
+piggycash stats monthly				# stats for given month, current month is default
 
 # Setup
 # piggycash setup --force

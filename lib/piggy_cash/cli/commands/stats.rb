@@ -15,6 +15,24 @@ module PiggyCash
               cmd.execute(options)
             end
           end
+
+          command 'stats monthly' do |c|
+            c.syntax = 'piggycash stats montly'
+            c.description = 'Stats: prints stats for given month'
+
+            c.option '--month INT', Integer, 'Month'
+            c.option '--year INT', Integer, 'Year'
+
+            c.action do |args, options|
+              options = {
+                month: options.month,
+                year: options.year
+              }
+
+              cmd = PiggyCash::CLI::Stats::Monthly.new
+              cmd.execute(options)
+            end
+          end
         end
       end
     end

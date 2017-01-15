@@ -42,6 +42,14 @@ module PiggyCash
         return false
       end
 
+      def self.booking_entries_in_range(year, month)
+        booking_entries_in_range = all
+        booking_entries_in_range = booking_entries_in_range.where('month(booking_date) = ? and year(booking_date) = ?', month, year)
+        booking_entries_in_range = booking_entries_in_range.order(booking_date: :desc, id: :desc)
+
+        return booking_entries_in_range
+      end
+
     end
   end
 end

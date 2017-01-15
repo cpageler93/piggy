@@ -7,6 +7,10 @@ module PiggyCash
       def generate_title_from_tags
         self.title = tags.collect{|tag|tag.name.titleize}.join(' ')
       end
+
+      def fraction_value
+        self.total_value * self.fraction
+      end
     end
   end
 end
