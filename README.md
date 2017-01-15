@@ -141,3 +141,52 @@ serves REST API at given port
         
     -v, --version 
         Display version information
+
+# API
+
+## Routes
+
+### Accounts
+
+    GET     /accounts           index
+    GET     /accounts/:id       show
+    POST    /accounts           create
+    PATCH   /accounts/:id       update
+    DELETE  /accounts/:id       delete
+
+### Booking Entries
+
+The API will return `evaluated_booking_entries`,
+although the entry is called `booking_entries`.
+
+The internal `BookingEntry` is kind of private and
+not usefull for external services. The `EvaluatedBookingEntry`
+entity contains more information and is based on the original
+`BookingEntry`
+
+    GET     /booking_entries                index
+    GET     /booking_entries/:id            show
+    POST    /booking_entries/:id/split      split entry into single fractions
+    POST    /booking_entries/:id/add_tag    add tag to entry
+    
+    GET     /booking_entries/find_by_query/:query
+
+### Booking Entry Query
+
+    GET     /booking_entry_queries                              index
+    GET     /booking_entry_queries/:id                          show
+    POST    /booking_entry_query                                create
+    PATCH   /booking_entry_query/:id                            update
+    DELETE  /booking_entry_query/:id                            delete
+    
+    POST    /booking_entry_query/:id/recognize_tag/:tag_id      add a tag to be automaticly recogized by the query
+
+
+### Tag
+
+    GET     /tags           index
+    GET     /tags/:id       show
+    POST    /tags           create
+    PATCH   /tags/:id       update
+    DELETE  /tags/:id       delete
+
