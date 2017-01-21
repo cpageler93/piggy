@@ -2,7 +2,7 @@ module PiggyCash
   module Models
     class BookingEntryQuery < ::ActiveRecord::Base
       belongs_to :account
-      has_many :booking_entry_tag_recognizers, dependent: destroy
+      has_many :booking_entry_tag_recognizers, dependent: :destroy
       has_many :tags, through: :booking_entry_tag_recognizers
 
       def self.booking_entries_for_query(query, account)
@@ -27,6 +27,17 @@ module PiggyCash
 
       def booking_entries
         BookingEntryQuery.booking_entries_for_query(self.query, self.account)
+      end
+
+      def map
+        {
+          id: self.id,
+          name: self.name,
+          query: self.query,
+          created_at: self.created_at,
+          updated_at: self.updated_at,
+          tags: self.tags.collect{|tag|tag.map}
+        }
       end
     end
   end

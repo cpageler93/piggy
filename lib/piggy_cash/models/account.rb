@@ -1,8 +1,8 @@
 module PiggyCash
   module Models
     class Account < ::ActiveRecord::Base
-      has_many :booking_entries, -> { order 'booking_date, id' }, dependent: destroy
-      has_many :booking_entry_queries, dependent: destroy
+      has_many :booking_entries, -> { order 'booking_date, id' }, dependent: :destroy
+      has_many :booking_entry_queries, dependent: :destroy
 
       def newest_booking_entry
         self.booking_entries.last

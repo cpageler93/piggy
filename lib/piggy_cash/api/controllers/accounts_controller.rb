@@ -53,7 +53,7 @@ module PiggyCash
           account = PiggyCash::Models::Account.find_by_id(id)
           return model_not_found unless account
 
-          account.delete
+          account.destroy
           return {success: true}.to_json
         end
 
