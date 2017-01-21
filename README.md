@@ -164,10 +164,11 @@ not usefull for external services. The `EvaluatedBookingEntry`
 entity contains more information and is based on the original
 `BookingEntry`
 
-    GET     /booking_entries                index
-    GET     /booking_entries/:id            show
-    POST    /booking_entries/:id/split      split entry into single fractions
-    POST    /booking_entries/:id/add_tag    add tag to entry
+    GET     /booking_entries                            index
+    GET     /booking_entries/:id                        show
+    POST    /booking_entries/:id/split                  split entry into single fractions
+    POST    /booking_entries/:id/add_tag                add tag to entry
+    DELETE  /booking_entries/:id/remove_tag/:tag_id     remove a tag from entry
     
     GET     /booking_entries/find_by_query/:query
 
@@ -175,11 +176,12 @@ entity contains more information and is based on the original
 
     GET     /booking_entry_queries                              index
     GET     /booking_entry_queries/:id                          show
-    POST    /booking_entry_query                                create
-    PATCH   /booking_entry_query/:id                            update
-    DELETE  /booking_entry_query/:id                            delete
+    POST    /booking_entry_queries                              create
+    PATCH   /booking_entry_queries/:id                          update
+    DELETE  /booking_entry_queries/:id                          delete
     
-    POST    /booking_entry_query/:id/recognize_tag/:tag_id      add a tag to be automaticly recogized by the query
+    POST    /booking_entry_queries/:id/recognize_tag/:tag_id    add a tag to be automatically recogized by the query
+    DELETE  /booking_entry_queries/:id/remove_recognized_tag/:tag_id remove a tag from being automatically recognized by the query
 
 
 ### Tag
