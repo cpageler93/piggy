@@ -4,7 +4,7 @@ module PiggyCash
   module Models
     class BookingEntry < ::ActiveRecord::Base
       belongs_to :account
-      has_many :evaluated_booking_entries
+      has_many :evaluated_booking_entries, dependent: destroy
 
       def update_checksum
         raw_checksum = "#{self.booking_date}#{self.valuta}#{self.participant}#{self.booking_type}#{self.usage}#{self.value}"

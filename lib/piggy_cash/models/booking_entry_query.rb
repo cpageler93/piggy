@@ -2,7 +2,7 @@ module PiggyCash
   module Models
     class BookingEntryQuery < ::ActiveRecord::Base
       belongs_to :account
-      has_many :booking_entry_tag_recognizers
+      has_many :booking_entry_tag_recognizers, dependent: destroy
       has_many :tags, through: :booking_entry_tag_recognizers
 
       def self.booking_entries_for_query(query, account)
