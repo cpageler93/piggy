@@ -73,6 +73,8 @@ module PiggyCash
             end
 
             booking_entry.save
+            booking_entry.copy_to_evaluation_if_needed
+
             first_usable_booking_entry = false
           end
         end

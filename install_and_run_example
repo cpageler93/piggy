@@ -13,13 +13,12 @@ rm $gem_name                          	# remove gem file
 
 # Queries
 # piggycash query assign tags		# create, select query and assign tags to it
-# piggycash query merge				# TODO merge multiple queries
 # piggycash query split VISA		# split single query to multiple
 
 # Stats
 # piggycash stats 					# TODO most important values
 # piggycash stats saldo				# saldo per month
-piggycash stats monthly				# stats for given month, current month is default
+# piggycash stats monthly				# stats for given month, current month is default
 
 # Setup
 # piggycash setup --force
@@ -32,4 +31,4 @@ piggycash stats monthly				# stats for given month, current month is default
 # piggycash validate saldo
 
 # Serve
-# piggycash serve api --port 12345
+piggycash api serve --port 12345

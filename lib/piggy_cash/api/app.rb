@@ -17,33 +17,76 @@ module PiggyCash
         {error: 'route not found'}.to_json
       end
 
-      ###############
-      #   Accounts
-      ###############
-      get '/accounts' do
-        c = PiggyCash::API::Controllers::AccountsController.new
-        c.index
-      end
+      def self.account_routes
+        get '/accounts' do
+          c = PiggyCash::API::Controllers::AccountsController.new
+          c.index
+        end
 
-      get '/accounts/:id' do
-        c = PiggyCash::API::Controllers::AccountsController.new
-        c.show(params['id'].to_i)
-      end
+        get '/accounts/:id' do
+          c = PiggyCash::API::Controllers::AccountsController.new
+          c.show(params['id'].to_i)
+        end
 
-      post '/accounts' do
-        c = PiggyCash::API::Controllers::AccountsController.new
-        c.create(@params)
-      end
+        post '/accounts' do
+          c = PiggyCash::API::Controllers::AccountsController.new
+          c.create(@params)
+        end
 
-      patch '/accounts/:id' do
-        c = PiggyCash::API::Controllers::AccountsController.new
-        c.update(params['id'].to_i, @params)
-      end
+        patch '/accounts/:id' do
+          c = PiggyCash::API::Controllers::AccountsController.new
+          c.update(params['id'].to_i, @params)
+        end
 
-      delete '/accounts/:id' do
-        c = PiggyCash::API::Controllers::AccountsController.new
-        c.delete(params['id'].to_i)
+        delete '/accounts/:id' do
+          c = PiggyCash::API::Controllers::AccountsController.new
+          c.delete(params['id'].to_i)
+        end
       end
+      account_routes
+
+      def self.booking_entry_routes
+
+        get '/booking_entries' do
+          c = PiggyCash::API::Controllers::BookingEntryController.new
+          c.index
+        end
+
+        get '/booking_entries/find_by_query' do
+          query_string = params['query']
+          account_id = params['account_id']
+
+          c = PiggyCash::API::Controllers::BookingEntryController.new
+          c.find_by_query(query_string, account_id)
+        end
+
+        get '/booking_entries/:id' do
+          c = PiggyCash::API::Controllers::BookingEntryController.new
+          c.show(params['id'].to_i)
+        end
+
+        post '/booking_entries/:id/split' do
+          c = PiggyCash::API::Controllers::BookingEntryController.new
+          c.split(params['id'].to_i, params['fraction'].to_f)
+        end
+
+        post '/booking_entries/:id/add_tag/:tag_id' do
+          booking_entry_id = params['id']
+          tag_id = params['tag_id']
+
+          c = PiggyCash::API::Controllers::BookingEntryController.new
+          c.add_tag(booking_entry_id, tag_id)
+        end
+
+        delete '/booking_entries/:id/remove_tag/:tag_id' do
+          booking_entry_id = params['id']
+          tag_id = params['tag_id']
+
+          c = PiggyCash::API::Controllers::BookingEntryController.new
+          c.remove_tag(booking_entry_id, tag_id)
+        end
+      end
+      booking_entry_routes
 
     end
   end

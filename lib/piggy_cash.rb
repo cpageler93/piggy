@@ -46,6 +46,7 @@ require 'piggy_cash/cli/stats/monthly.rb'
 # API
 require 'piggy_cash/api/controllers/application_controller.rb'
 require 'piggy_cash/api/controllers/accounts_controller.rb'
+require 'piggy_cash/api/controllers/booking_entry_controller.rb'
 require 'piggy_cash/api/app.rb'
 
 # Models
