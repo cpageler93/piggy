@@ -48,6 +48,7 @@ require 'piggy_cash/api/controllers/application_controller.rb'
 require 'piggy_cash/api/controllers/accounts_controller.rb'
 require 'piggy_cash/api/controllers/booking_entry_controller.rb'
 require 'piggy_cash/api/controllers/booking_entry_query_controller.rb'
+require 'piggy_cash/api/controllers/tag_controller.rb'
 require 'piggy_cash/api/app.rb'
 
 # Models

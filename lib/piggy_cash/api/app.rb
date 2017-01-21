@@ -125,6 +125,34 @@ module PiggyCash
         end
       end
       booking_entry_query_routes
+
+      def self.tag_routes
+        get '/tags' do
+          c = PiggyCash::API::Controllers::TagController.new
+          c.index
+        end
+
+        get '/tags/:id' do
+          c = PiggyCash::API::Controllers::TagController.new
+          c.show(params['id'].to_i)
+        end
+
+        post '/tags' do
+          c = PiggyCash::API::Controllers::TagController.new
+          c.create(@params)
+        end
+
+        patch '/tags/:id' do
+          c = PiggyCash::API::Controllers::TagController.new
+          c.update(params['id'].to_i, @params)
+        end
+
+        delete '/tags/:id' do
+          c = PiggyCash::API::Controllers::TagController.new
+          c.delete(params['id'].to_i)
+        end
+      end
+      tag_routes
     end
   end
 end
