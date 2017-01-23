@@ -6,7 +6,8 @@ module PiggyCash
       before_destroy { tags.clear }
 
       def generate_title_from_tags
-        self.title = tags.collect{|tag|tag.name.titleize}.join(' ')
+        tags_names = tags.collect{|tag|tag.name.titleize}
+        self.title = tags_names.count > 0 ? tags_names.join(' ') : booking_entry.usage
       end
 
       def fraction_value
