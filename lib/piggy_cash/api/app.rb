@@ -153,6 +153,16 @@ module PiggyCash
         end
       end
       tag_routes
+
+      def self.stats_routes
+        get '/stats/saldo/per_month' do
+          account_id = params['account_id']
+          c = PiggyCash::API::Controllers::StatsController.new
+          c.saldo_per_month(account_id)
+        end
+      end
+      stats_routes
+
     end
   end
 end

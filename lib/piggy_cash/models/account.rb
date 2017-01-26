@@ -12,6 +12,17 @@ module PiggyCash
         self.booking_entries.first
       end
 
+      def newest_booking_entry_in_month(date)
+
+        year = date.strftime("%Y").to_i
+        month = date.strftime("%m").to_i
+
+        first_day_of_month = Date.new(year, month, 1)
+        last_day_of_month = Date.new(year, month, -1)
+
+        self.booking_entries.where('booking_date >= ? and booking_date <= ?', first_day_of_month, last_day_of_month).last
+      end
+
       def validate_saldo
         # setup variables
         total_saldo = 0

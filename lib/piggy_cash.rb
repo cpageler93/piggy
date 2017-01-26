@@ -20,6 +20,10 @@ require 'piggy_cash/core/selection/tag.rb'
 require 'piggy_cash/core/importer/base.rb'
 require 'piggy_cash/core/importer/ingdiba.rb'
 
+# Core/stats
+require 'piggy_cash/core/stats/base.rb'
+require 'piggy_cash/core/stats/saldo.rb'
+
 # CLI Commands
 require 'piggy_cash/cli/commands/api.rb'
 require 'piggy_cash/cli/commands/import.rb'
@@ -49,6 +53,7 @@ require 'piggy_cash/api/controllers/accounts_controller.rb'
 require 'piggy_cash/api/controllers/booking_entry_controller.rb'
 require 'piggy_cash/api/controllers/booking_entry_query_controller.rb'
 require 'piggy_cash/api/controllers/tag_controller.rb'
+require 'piggy_cash/api/controllers/stats_controller.rb'
 require 'piggy_cash/api/app.rb'
 
 # Models
