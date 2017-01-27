@@ -66,7 +66,7 @@ module PiggyCash
 
               add_tag = PiggyCash::Models::Tag.find_by_name(add_tag_with_name)
               unless add_tag
-                create_new_tag = agree("´#{add_tag_with_name}'´ is non of the existing tags, do you want to create it now?") {|q| q.default = "yes"}
+                create_new_tag = agree("´#{add_tag_with_name}´ is non of the existing tags, do you want to create it now?") {|q| q.default = "yes"}
                 add_tag = PiggyCash::Models::Tag.new
                 add_tag.name = add_tag_with_name
                 add_tag.save
